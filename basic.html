@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+</head>
+
+<body>
+    <h1>Javascript basics</h1>
+    <ul>
+        <li>Spring</li>
+        <li>Summer</li>
+        <li>Fall</li>
+        <li>Winter</li>
+    </ul>
+    <script>
+      /*function countCharacters(str = ""){
+        if (!str) {
+            console.warn("It's not a string");
+        } else {
+            console.info(`The string ${str} has ${str.length} characters`);
+        }
+      }*/ 
+
+      //1
+      /*
+      const countCharacters = (str = "") => 
+        (!str)
+            ?console.warn("It's not a string")
+            :console.info(`The string ${str} has ${str.length} characters`);
+
+      countCharacters();
+      countCharacters("Hello World");
+      */
+
+      //2
+
+    /*
+      const cropText = (str="",l = undefined)=>
+        (!str)
+            ?console.warn("Its not a string")
+            :console.info(str.slice(0,l));
+    */
+
+    /*
+    const cropText = (str="",l = undefined)=>
+        (!str)
+            ?console.warn("Its not a string")
+            :(l===undefined)
+                ?console.warn("L === undefined")
+                :console.info(str.slice(0,l))
+
+      cropText("Hello WORLD",4);
+      cropText();
+      cropText("Hello hello");
+      cropText("",5);
+    */
+
+    //3
+    /*
+    const arrayToString = (str = "", s = undefined) =>
+    (!str)
+      ?console.warn("It's not a string")
+      :(s===undefined)
+        ?console.warn("You did not enter the separator character")
+        :console.info(str.split(s));
+
+    arrayToString("asd fñggkg flñdkg sñlfmng adfg", "");
+    arrayToString("a,b,c,d,e,f,g,h", ",");
+    arrayToString();
+    arrayToString("Hello world");
+    arrayToString("","-");
+    */
+
+    //4
+    /*
+    const repeatText = (str = "", times = undefined) => {
+        if(!str) return console.warn("It's not a string");
+
+        if(times === undefined) return console.warn("Times is undefined");
+
+        //error logic/syntaxis
+        if(times === 0) return console.error("Times is 0")
+
+        if(Math.sign(times) === -1) return console.error("Times is -");
+
+        for (let i = 0; i <= times; i++) console.info(`${str}, ${i}`);
+    }
+
+    repeatText("Hello",3);
+    repeatText("Hello",0);
+    repeatText("Hello",-3);
+    repeatText("",-3);
+    repeatText("Hello");
+    */
+
+    //5
+    /*
+    const reverseString = (str = "") => 
+    (!str)
+        ?console.warn("This is not a string")
+        :console.info(str.split("").reverse().join(""));
+
+    reverseString();
+    reverseString("Hello World");
+    */
+
+    //6
+    /*
+    const countString = (str = "", text = "") => {
+        if (!str) return console.warn("It's not a string");
+        if(!text) return console.warn("It's not a word");
+
+        let i = 0,
+        c = 0;
+
+        while (i !== -1) {
+            i = str.indexOf(text, i);
+            if (i !== -1) {
+                i++;
+                c++;
+            }
+        }
+        console.log(`The word ${text} repets ${c} times`);
+    }
+
+    countString();
+    countString("","world");
+    countString("hello world, bye world");
+    countString("hello world, bye world", "world");
+    */
+    //7
+
+    /*
+    const palindrome = (word = "") => {
+        if(!word) return console.warn("It is not a word");
+
+        word = word.toLowerCase();
+        let theOtherWayAround = word.split("").reverse().join("");
+
+        return(word===theOtherWayAround)
+            ?console.info("Yes")
+            :console.info("No");
+    }
+
+    palindrome();
+    palindrome("yes");
+    palindrome("Salas");
+    */
+
+    //8
+    /*
+    const deleteChar = (str="", patron="") =>
+        (!str)
+            ?console.warn("It is not a string")
+            :(!patron)
+                ?console.warn("It is not a Patron")
+                :console.info(str.replace( RegExp(patron, "ig"),""));
+
+    deleteChar();
+    deleteChar("xyz1,xyz2,xyz3,xyz4");
+    deleteChar("xyz1,xyz2,xyz3,xyz4","xyz");
+    */
+
+    //9
+    /*
+    const rand = () => console.info(Math.round(Math.random()*100)+500);
+    rand();
+    */
+
+    //10
+
+    /*
+    const capicua = (number = 0) => {
+        if (!number) return console.warn("It is not a number");
+
+        if (typeof number !== "number") console.error("It is not a number");
+
+        number = number.toString();
+        let theOtherWayAround = number.split("").reverse().join("");
+
+        return (number === theOtherWayAround)
+            ?console.info("yes")
+            :console.info("no");
+    }
+
+    capicua();
+    capicua(19);
+    capicua({});
+    capicua(2002);
+    capicua(212.212);
+    */
+
+    //11
+
+    const factorial = (number = undefined) => {
+        if(number === undefined) return console.error("It is not a number");
+
+        if (number === 0) return console.error("The number cannot be 0 0");
+
+        if(Math.sign(number) === -1) return console.error("The number cannot be negative");
+
+        let factorial = 1;
+
+        for (let i = number; i > 1; i--) {
+            factorial*=i;
+        }
+
+        return console.info(`The factorial of ${number} is ${factorial} `)
+    }
+
+    factorial();
+    factorial("5");
+    factorial([1,2,3]);
+    factorial(0);
+    factorial(-5);
+    factorial(5);
+
+
+    </script>
+</body>
+
+</html>
